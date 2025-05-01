@@ -4,8 +4,6 @@ inputs:
   access_token:
     description: "Your project token"
     required: true
-  job_name:
-    required: true
   status:
     required: true
 
