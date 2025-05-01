@@ -20,24 +20,26 @@ async function run() {
     const runUrl = `${process.env.GITHUB_SERVER_URL}/${repo}/actions/runs/${runId}`;
     const server = process.env.GITHUB_SERVER_URL;
 
-    await axios.post("https://op-api-1oin.onrender.com/ci-event", {
+    const payload = {
       job: jobName,
       status: status,
       token: accessToken,
-      repo,
-      commit,
-      ref,
-      actor,
-      workflow,
-      runId,
-      runAttempt,
-      runNumber,
-      runUrl,
-      server,
-    });
+      repo: repo,
+      commit: commit,
+      ref: ref,
+      actor: actor,
+      workflow: workflow,
+      runid: runId,
+      runAttempt: runAttempt,
+      runNumber: runNumber,
+      runUrl: runUrl,
+      server: server,
+    };
+
+    await axios.post("https://op-api-1oin.onrender.com/ci-event", payload);
 
     console.log(
-      `Sent CI/CD event for job "${jobName}" with status "${status}"`
+      `Sent CI/CD event for job "${jobName}" with status "${status}" and payload: ${payload}`
     );
   } catch (error) {
     core.setFailed(`Failed to send event: ${error.message}`);
