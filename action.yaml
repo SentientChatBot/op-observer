@@ -1,0 +1,14 @@
+name: "Send CI/CD Metrics"
+description: "Send job status and metadata to your CI/CD observer API"
+inputs:
+  access_token:
+    description: "Your project token"
+    required: true
+  job_name:
+    required: true
+  status:
+    required: true
+
+runs:
+  using: "node16"
+  main: "send_event.js"
