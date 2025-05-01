@@ -11,4 +11,4 @@ inputs:
 
 runs:
   using: "node16"
-  main: "send_event.js"
+  main: "dist/index.js"

@@ -1,0 +1,24 @@
+{
+  "name": "op-observer-action",
+  "version": "1.0.0",
+  "description": "GitHub Action to send CI/CD event data to OP Observer backend.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build send_event.js -o dist"
+  },
+  "keywords": [
+    "github-action",
+    "ci",
+    "cd",
+    "observability"
+  ],
+  "author": "Aaron Williams",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.0"
+  }
+}
